@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Community Forum | Tastiary</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Tastiary Community Forum</h1>
+        <p>Share your food stories, ask questions, and join the conversation!</p>
+        <b><a href="recipe.html">Recipe</a> &nbsp;
+            <a href="explorer.html">Cuisine Explorer</a> &nbsp;
+            <a href="forum.html">Community Forum</a> &nbsp;
+            <a href="fav.html">Favourite and Collection</a> &nbsp;
+            <a href="admin.html">Admin</a> &nbsp;</b>
+    </header><br>
+    <table align="center" width="90%" cellpadding="10"
+        style="background-color: #fff3e0; border: 2px solid #d84915; border-collapse: collapse;">
+        <tr><th colspan="2" style=" text-align: center;">
+                <h2>Start a New Discussion</h2>
+            </th>
+        </tr>
+        <tr><td>Topic Title:</td>
+            <td><input type="text" id="title" style="width:95%; padding: 5px;"></td>
+        </tr>
+        <tr><td>Category:</td>
+            <td><select id="category" style="width:95%; padding: 5px;">
+                    <option>General Discussion</option>
+                    <option>Recipe Help</option>
+                    <option>Cooking Tips</option>
+                    <option>Ingredient Q&A</option>
+                    <option>Regional Cuisine</option>
+                </select></td>
+        </tr>
+        <tr><td>Your Message:</td>
+            <td><textarea id="message" rows="6" style="width:95%; padding: 5px;"></textarea></td>
+        </tr>
+        <tr><td colspan="2" style="text-align: center;">
+                <button id="postBtn" style="background-color: #d84915; color:white; border:none;">Post</button>
+            </td>
+        </tr>
+    </table><br>
+    <table align="center" width="90%" cellpadding="10" style="border-collapse: collapse; background-color: #fffaf3;">
+        <tr style="background-color: #d84915; color: white;">
+            <th colspan="2" style="text-align: center;">Recent Topics</th>
+        </tr>
+        <tbody id="recentTopics"></tbody>
+    </table>
+    <br><br><br><br>
+    <footer>
+        <p>&copy; 2025 Tastiary.</p>
+    </footer>
+    <script>
+        const postBtn = document.getElementById('postBtn');
+        const titleInput = document.getElementById('title');
+        const categoryInput = document.getElementById('category');
+        const messageInput = document.getElementById('message');
+        const recentTopics = document.getElementById('recentTopics');
+
+        postBtn.addEventListener('click', () => {
+            const title = titleInput.value.trim();
+            const category = categoryInput.value;
+            const message = messageInput.value.trim();
+
+            if (!title || !message) {
+                alert("Please fill out all fields.");
+                return;
+            }
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><strong>${title}</strong></td>
+                <td><em>${category}</em><br>${message}</td>
+            `;
+            recentTopics.prepend(row);
+
+            titleInput.value = '';
+            messageInput.value = '';
+            categoryInput.selectedIndex = 0;
+            alert("Your post has been added!");
+        });
+    </script>
+</body>
+
+</html>

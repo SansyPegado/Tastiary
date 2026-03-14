@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tastiary | Recipe</title>
+    </head>
+    <body style="font-family: 'Georgia', serif; background-color: #fff3e0; color: #4e342e; padding: 0;">
+  <header style="background-color: #d84315; padding: 20px; text-align: center; color: white;">
+    <h1>Tastiary Recipes</h1>
+    <p>Discover Global Flavors</p>
+  </header>
+  <section style="padding: 20px; max-width: 800px;">
+    <h2 style="color: #bf360c;"><u>Butter Chicken</u></h2>
+    <p><strong>Origin:</strong> India</p>
+    <p><strong>Prep Time:</strong> 20 mins &nbsp; | &nbsp; <strong>Cook Time:</strong> 40 mins</p>
+    <img src="butter_chicken.jpg" alt="Butter Chicken" style="width:100%; max-width:400px;">
+    <h3 style="color: #6d4c41;">Ingredients:</h3>
+    <ul>
+      <li>500g chicken (boneless)</li>
+      <li>1 cup yogurt</li>
+      <li>2 tsp garam masala</li>
+      <li>2 onions (chopped)</li>
+      <li>3 tomatoes (pureed)</li>
+      <li>1/2 cup cream</li>
+      <li>2 tbsp butter</li>
+      <li>Salt & chili powder</li>
+    </ul>
+    <h3 style="color: #6d4c41;">Instructions:</h3>
+    <ol>
+      <li>Marinate chicken in yogurt and spices for 1 hour.</li>
+      <li>Sauté onions, then add tomato puree.</li>
+      <li>Add chicken and cook until done.</li>
+      <li>Stir in cream and butter, simmer for 10 minutes.</li>
+      <li>Garnish with coriander and serve hot with naan or rice.</li>
+    </ol><br>
+      <a href="recipe.html">Back</a><br>
+    <a href="rating.html">Rate this Recipe</a><br>
+    <a href="#" onclick="saveFav()">Add to Favorites</a>
+  </section>
+  <footer style="background-color: #ff5f42; color: white; text-align:center; padding: 0.3px;"><p>&copy; 2025 Tastiary.</p></footer>
+  <script>
+    function saveFav() {
+      let fav= JSON.parse(localStorage.getItem('favorites')) || [];
+      let exists = false;
+      for (let i= 0; i< fav.length; i++) {
+        if (fav[i].name === "Butter Chicken") {
+          exists= true;
+          break;
+        }
+      }
+      let d= new Date();
+      let year= d.getFullYear();
+      let month= d.getMonth() + 1;
+      let day= d.getDate() + 1;
+      let date= `${year}-${month < 10 ? '0' + month: month}-${day < 10 ? '0' + day: day}`;
+      if (!exists) {
+        fav.push({
+          name: "Butter Chicken",
+          cuisine: "Indian",
+          date: date,
+      });
+        localStorage.setItem('favorites', JSON.stringify(fav));
+        alert("Recipe added to favorites!");
+      } else {
+        alert("This recipe is already in your favorites!");
+        return;
+      }
+    }
+    </script>
+</body>
+</html>

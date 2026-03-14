@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tastiary | Recipe</title>
+</head>
+<body style="font-family: 'Georgia', serif; background-color: #fff3e0; color: #4e342e; padding: 0;">
+  <header style="background-color: #d84315; padding: 20px; text-align: center; color: white;">
+    <h1>Tastiary Recipes</h1>
+    <p>Discover Global Flavors</p>
+  </header>
+  <section style="padding: 20px; max-width: 800px;">
+    <h2 style="color: #bf360c;"> Classic Mexican Tacos</h2>
+    <p><strong>Origin:</strong> Mexico</p>
+    <p><strong>Prep Time:</strong> 15 mins &nbsp; | &nbsp; <strong>Cook Time:</strong> 15 mins</p>
+    <img src="tacos.jpg" alt="Tacos" style="width:100%; max-width:400px;">
+    <h3 style="color: #6d4c41;">Ingredients:</h3>
+    <ul>
+      <li>8 corn tortillas</li>
+      <li>500g ground beef</li>
+      <li>1 onion (chopped)</li>
+      <li>2 garlic cloves (minced)</li>
+      <li>1 tsp cumin</li>
+      <li>1 tsp paprika</li>
+      <li>Salt and pepper</li>
+      <li>Shredded lettuce</li>
+      <li>Diced tomatoes</li>
+      <li>Cheddar cheese (grated)</li>
+      <li>Sour cream or salsa</li>
+    </ul>
+    <h3 style="color: #6d4c41;">Instructions:</h3>
+    <ol>
+      <li>Sauté onion and garlic in a pan until fragrant.</li>
+      <li>Add ground beef, cook until browned. Add cumin, paprika, salt & pepper.</li>
+      <li>Warm tortillas on a skillet or microwave.</li>
+      <li>Fill tortillas with meat, lettuce, tomatoes, cheese, and toppings of choice.</li>
+      <li>Serve immediately with lime wedges and enjoy!</li>
+    </ol>
+    <a href="recipe.html">Back</a><br>
+    <a href="rating.html">Rate this Recipe</a><br>
+    <a href="#" onclick="saveFav()">Add to Favorites</a>
+  </section>
+    <footer style="background-color: #ff5f42; color: white; text-align:center; padding: 0.3px;"><p>&copy; 2025 Tastiary.</p></footer>
+  <script>
+    function saveFav() {
+      let fav= JSON.parse(localStorage.getItem('favorites')) || [];
+      let exists = false;
+      for (let i= 0; i< fav.length; i++) {
+        if (fav[i].name === "Classic Mexican Tacos") {
+          exists= true;
+          break;
+        }
+      }
+      let d= new Date();
+      let year= d.getFullYear();
+      let month= d.getMonth() + 1;
+      let day= d.getDate() + 1;
+      let date= `${year}-${month < 10 ? '0' + month: month}-${day < 10 ? '0' + day: day}`;
+      if (!exists) {
+        fav.push({
+          name: "Classic Mexican Tacos",
+          cuisine: "Mexico",
+          date: date,
+      });
+        localStorage.setItem('favorites', JSON.stringify(fav));
+        alert("Recipe added to favorites!");
+      } else {
+        alert("This recipe is already in your favorites!");
+        return;
+      }
+    }
+    </script>
+</body>
+</html>

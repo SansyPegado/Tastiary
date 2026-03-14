@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tastiary | Rating</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body style="font-family: 'Georgia', serif; background-color: #fff3e0; color: #4e342e; padding: 0;">
+    <header style="background-color: #d84315; padding: 20px; text-align: center; color: white;">
+        <h1>Tastiary Recipes</h1>
+        <p>Discover Global Flavors</p> 
+    </header>
+    <section style="padding: 20px; text-align: center;">
+        <h2 style="color: #bf360c;">Rate Your Experience</h2>
+        <p>We value your feedback! Please rate your experience with our recipes.</p>
+        <button onclick="askRating()" style="padding: 10px 20px; background-color: #d84315; color: white; border: none; cursor: pointer;">Rate Now</button>
+    
+    <script>
+    function askRating() {
+      let rating = prompt("Please rate your experience (1 to 5):");
+
+      if (rating !== null) {
+        if (rating >= 1 && rating <= 5) {
+          alert("Thank you for rating us " + rating + " stars!");
+        } 
+        else {
+          alert("Please enter a valid rating between 1 and 5.");
+        }
+      } 
+      else {
+        alert("You cancelled the rating.");
+      }
+    }
+    </script>
+
+        <p>Feel free to share your thoughts on our recipes!</p>
+        <a href="recipe.html">Back to Recipes</a>
+    </section>
+    <footer><p>&copy; 2025 Tastiary.</p>
+    </footer>
+</body>
+</html>

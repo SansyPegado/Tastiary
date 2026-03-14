@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recipes | Tastiary</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    h2 {
+      text-align: left;
+      margin: 0px;
+      padding: 5px 100px;
+    }
+    .content {
+      background-color: #fff3e0;
+      border: 2px solid #d84315;
+      border-radius: 10px;
+      padding: 20px;
+      width: 800px; 
+    }
+    #search {
+      padding: 10px;
+      margin: 30px;
+      width: 30%;
+      border: 2px solid #000000;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tastiary Recipes</h1>
+    <p>Explore flavors from around the world</p>
+    <b><a href="recipe.html">Recipe</a> &nbsp;
+      <a href="explorer.html">Cuisine Explorer</a> &nbsp;
+      <a href="forum.html">Community Forum</a> &nbsp;
+      <a href="fav.html">Favourite and Collection</a> &nbsp;
+      <a href="admin.html">Admin</a> &nbsp;</b>
+  </header>
+  <input type="text" id="search" placeholder="Search recipes here...">
+    <div class="content">
+    <h2>Butter Chicken</h2>
+    <p style="text-align: justify; padding: 0px 100px; margin: 0px;">Butter chicken is a type of curry made from chicken cooked in a spiced tomato and
+      butter (makhan)-based gravy. The gravy is typically known for its rich texture. It is similar to chicken tikka masala, which uses a tomato paste.
+       The dish originates in Delhi, India. <a href="recipe1(butter_chicken).html">Recipe</a></p><br>
+    <img src="butter_chicken.jpg" alt="Butter Chicken" style="width:100%; max-width:400px;"></div>
+    <div class="content">
+    <h2>Tacos</h2>
+    <p style="text-align: justify; padding: 0px 100px; margin: 0px;">A taco is a traditional Mexican dish consisting of a small, hand-held tortilla,
+      typically made of corn or wheat, filled with various ingredients and toppings. Tacos are a popular form of street
+      food and are widely enjoyed both in Mexico and around the world. <a href="recipe2(tacos).html">Recipe</a></p><br>
+    <img src="tacos.jpg" alt="Tacos" style="width:100%; max-width:400px;"></div>
+    <div class="content">
+    <h2>Spaghetti</h2>
+    <p style="text-align: justify; padding: 0px 100px; margin: 0px;">Spaghetti is a long, thin, cylindrical pasta of Italian origin. It is made from 
+      wheat semolina and water, and is typically served with a variety of sauces, such as marinara, meat sauce, or pesto.
+      Spaghetti is one of the most popular types of pasta worldwide. <a href="recipe3(spaghetti).html">Recipe</a></p><br>
+    <img src="spaghetti.jpg" alt="Spaghetti" style="width:100%; max-width:400px;"></div><br><br>
+    <footer><p>&copy; 2025 Tastiary.</p></footer>
+  <script>
+    $(document).ready(function() {
+      $("#search").on("keyup", function() {
+        let value = $(this).val().toLowerCase();
+        $(".content").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        });
+      });
+    });
+  </script>
+</body></html>

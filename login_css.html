@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tastiary - User Authentication</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fddbcd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+    h1 {color: #d84915;}
+
+    .container {
+      background: white;
+      padding: 20px 30px;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    input[type="text"], input[type="password"], input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #ff6f61;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #e25b50;
+    }
+
+    .switch-link {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .switch-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .switch-link a:hover {
+      text-decoration: underline;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to Tastiary</h1>
+
+  <!-- Login Form -->
+  <div class="container" id="login-form">
+    <h3>Login</h3>
+    <form onsubmit="goToRecipe(event)">
+  <label>Email</label>
+  <input type="email" required>
+
+  <label>Password</label>
+  <input type="password" required>
+
+  <button type="submit">Login</button>
+</form>
+
+    <div class="switch-link">
+      Don't have an account? <a href="#" onclick="showForm('register-form')">Register</a>
+    </div>
+  </div>
+
+  <!-- Registration Form -->
+  <div class="container hidden" id="register-form">
+    <h3>Register</h3>
+    <form>
+      <label>Full Name</label>
+      <input type="text" required>
+
+      <label>Email</label>
+      <input type="email" required>
+
+      <label>Password</label>
+      <input type="password" required>
+
+      <button type="submit">Register</button>
+    </form>
+    <div class="switch-link">
+      Already have an account? <a href="#" onclick="showForm('login-form')">Login</a>
+    </div>
+  </div>
+
+  <!-- Profile Management Placeholder -->
+  <div class="container hidden" id="profile-form">
+    <h3>Manage Profile</h3>
+    <form>
+      <label>Full Name</label>
+      <input type="text" value="User Name">
+
+      <label>Email</label>
+      <input type="email" value="user@example.com">
+
+      <button type="submit">Update Profile</button>
+    </form>
+    <div class="switch-link">
+      <a href="#" onclick="showForm('login-form')">Logout</a>
+    </div>
+  </div>
+
+  <script>
+  
+  function goToRecipe(event) {
+    event.preventDefault();
+    window.location.href = "recipe.html"; 
+  }
+    function showForm(formId) {
+      document.getElementById('login-form').classList.add('hidden');
+      document.getElementById('register-form').classList.add('hidden');
+      document.getElementById('profile-form').classList.add('hidden');
+
+      document.getElementById(formId).classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
